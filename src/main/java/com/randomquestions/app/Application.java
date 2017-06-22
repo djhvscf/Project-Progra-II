@@ -124,7 +124,7 @@ public class Application extends JFrame {
         return new JScrollPane(contactsList);
     }
 
-    private void createNew() {
+    private void createNew() throws SQLException {
         final Contact contact = new Contact();
         contact.setName("New Contact Name");
         contact.setContacts("New Contact Details");
@@ -174,7 +174,11 @@ public class Application extends JFrame {
 
             @Override
             public void actionPerformed(final ActionEvent e) {
-                createNew();
+                try {
+                    createNew();
+                } catch (SQLException e1) {
+                    e1.printStackTrace();
+                }
             }
         };
 
