@@ -21,7 +21,7 @@ public class UserDialog extends JDialog
     JTextField jTextFieldId = new JTextField(40);
     JTextField jTextFieldName = new JTextField(40);
     JTextField jTextFieldEmail = new JTextField(40);
-    JTextField jTextFieldPassword = new JTextField(40);
+    JPasswordField jTextFieldPassword = new JPasswordField(40);
     JTextField jTextFieldUsername = new JTextField(40);
 
     JButton jButtonSave = new JButton(I18N.lang("userframe.jButtonSave"));
@@ -51,14 +51,14 @@ public class UserDialog extends JDialog
         this.userToEdit = userToEdit;
 
         setLocation(new Random().nextInt(150), new Random().nextInt(150));
-        setSize(350, 200);
+        setSize(450, 300);
         setResizable(false);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         // new :
         if (isNew)
         {
-            setLayout(new GridLayout(4, 2));
+            setLayout(new GridLayout(5, 2));
         } // modification :
         else
         {
@@ -118,7 +118,7 @@ public class UserDialog extends JDialog
 
         if (this.isNew)
         {
-            userBean.setPassword(jTextFieldPassword.getText());
+            userBean.setPassword(jTextFieldPassword.getPassword().toString());
 
             if (userRepository.create(userBean) != null)
             {
