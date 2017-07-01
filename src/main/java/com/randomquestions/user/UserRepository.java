@@ -68,7 +68,7 @@ public class UserRepository implements Repository<UserBean>
         try
         {
             PreparedStatement prepared = DAOConnection.getInstance().prepareStatement(
-                    "SELECT * FROM users");
+                    "SELECT * FROM user");
 
             ResultSet result = prepared.executeQuery();
 

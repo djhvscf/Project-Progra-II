@@ -118,7 +118,7 @@ public class UserDialog extends JDialog
 
         if (this.isNew)
         {
-            userBean.setPassword(jTextFieldPassword.getPassword().toString());
+            userBean.setPassword(new String(jTextFieldPassword.getPassword()));
 
             if (userRepository.create(userBean) != null)
             {
