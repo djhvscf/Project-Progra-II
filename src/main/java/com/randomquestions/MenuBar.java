@@ -46,6 +46,7 @@ public class MenuBar extends JMenuBar
     JMenuItem jMenuItemFrame1 = new JMenuItem(I18N.lang("menubar.jMenuItemFrame1"));
     JMenuItem jMenuItemProductFrame = new JMenuItem(I18N.lang("menubar.jMenuItemProductFrame"));
     JMenuItem jMenuItemUserFrame = new JMenuItem(I18N.lang("menubar.jMenuItemUserFrame"));
+    JMenuItem jMenuItemLoginFrame = new JMenuItem(I18N.lang("menubar.jMenuItemLoginFrame"));
     JMenuItem jMenuItemQuit = new JMenuItem(I18N.lang("menubar.jMenuItemQuit"));
 
     // help :
@@ -75,6 +76,11 @@ public class MenuBar extends JMenuBar
 
         jMenuItemUserFrame.setAccelerator(KeyStroke.getKeyStroke('P', Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
         jMenuFile.add(jMenuItemUserFrame);
+
+        jMenuFile.addSeparator();
+
+        jMenuItemLoginFrame.setAccelerator(KeyStroke.getKeyStroke('P', Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
+        jMenuFile.add(jMenuItemLoginFrame);
 
         jMenuFile.addSeparator();
 

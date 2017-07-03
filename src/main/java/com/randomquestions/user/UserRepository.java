@@ -54,6 +54,45 @@ public class UserRepository implements Repository<UserBean>
     }
 
     /**
+     * Find one item by id.
+     *
+     * @param username
+     * @param password
+     * @return
+     */
+    public UserBean login(String username, String password)
+    {
+        log.debug("Start method...");
+
+        UserBean obj = null;
+
+        try
+        {
+            PreparedStatement prepared = DAOConnection.getInstance().prepareStatement(
+                    "SELECT * FROM user WHERE username=? AND password=?");
+
+            prepared.setString(1, username);
+            prepared.setString(2, password);
+
+            ResultSet result = prepared.executeQuery();
+
+            if (result.first())
+            {
+                obj = map(result);
+            }
+
+        } catch (SQLException e)
+        {
+            log.error("Error finding user : " + e);
+        }
+
+        log.debug("End method.");
+
+        return obj;
+
+    }
+
+    /**
      * Find all items.
      *
      * @return

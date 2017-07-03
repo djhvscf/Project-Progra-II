@@ -35,6 +35,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
+
+import com.randomquestions.login.LoginFrame;
 import com.randomquestions.product.ProductFrame;
 import com.randomquestions.user.UserFrame;
 import org.apache.log4j.Logger;
@@ -54,9 +56,9 @@ public class Desktop extends JFrame
 
     // internal frames :
     FrameAbout frameAbout = new FrameAbout();
-    Frame1 frame1 = new Frame1();
     ProductFrame productFrame = new ProductFrame();
     UserFrame userFrame = new UserFrame();
+    LoginFrame loginFrame = new LoginFrame();
 
     // menu :
     MenuBar menuBar = new MenuBar();
@@ -79,9 +81,9 @@ public class Desktop extends JFrame
 
         // add internal frames to desktop :
         jDesktopPane.add(frameAbout);
-        jDesktopPane.add(frame1);
         jDesktopPane.add(productFrame);
         jDesktopPane.add(userFrame);
+        jDesktopPane.add(loginFrame);
 
         // add the menu bar :
         setJMenuBar(menuBar);
@@ -106,17 +108,6 @@ public class Desktop extends JFrame
                 log.debug("ActionEvent on " + ev.getActionCommand());
 
                 frameAbout.setVisible(true);
-            }
-        });
-
-        // jMenuItemFrame1 :
-        menuBar.jMenuItemFrame1.addActionListener(new ActionListener()
-        {
-            public void actionPerformed(ActionEvent ev)
-            {
-                log.debug("ActionEvent on " + ev.getActionCommand());
-
-                frame1.setVisible(true);
             }
         });
 
@@ -160,6 +151,15 @@ public class Desktop extends JFrame
                 userFrame.jTable1.setModel(userFrame.getData());
 
                 userFrame.setVisible(true);
+            }
+        });
+
+        menuBar.jMenuItemLoginFrame.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ev)
+            {
+                log.debug("ActionEvent on " + ev.getActionCommand());
+
+                loginFrame.setVisible(true);
             }
         });
 
